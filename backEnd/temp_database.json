@@ -1,0 +1,21 @@
+{
+  "test_username": {
+    "username": "string",
+    "name": "string",
+    "email": "string",
+    "password": "salted_string",
+    "cards": []
+  },
+  "new_user": {
+    "username": "new_user",
+    "cards": [
+      {
+        "definition": "World",
+        "word": "Hello"
+      }
+    ],
+    "name": "new userman",
+    "email": "test_email",
+    "password": "NEW PASSWORD"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "lib": ["ES6"],
+    "module": "CommonJS",
+    "target": "es6",
+    "moduleResolution": "node",
+    // "types": ["node"],
+    "strict": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
+  }
+}
