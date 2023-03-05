@@ -16,8 +16,12 @@ export const LoginPage = (): JSX.Element => {
       ) : (
         <form className="login-form">
           <label>
-            Email:
-            <input id="login-email" type="email" className="login-input" />
+            Username:
+            <input
+              id="login-username"
+              type="username"
+              className="login-input"
+            />
           </label>
           <label>
             Password:
@@ -35,24 +39,24 @@ export const LoginPage = (): JSX.Element => {
               id="login-submit"
               onClick={(e) => {
                 e.preventDefault();
-                const email =
+                const username =
                   document.querySelector<HTMLInputElement>(
-                    "#login-email"
+                    "#login-username"
                   )?.value;
                 const pwd =
                   document.querySelector<HTMLInputElement>(
                     "#login-password"
                   )?.value;
-                console.log("TEST", email, pwd);
-                if (email && pwd) {
+                console.log("TEST", username, pwd);
+                if (username && pwd) {
                   console.log("making call");
                   setLoading(true);
-                  updateAuth(email, pwd).then(() => {
+                  updateAuth(username, pwd).then(() => {
                     setLoading(false);
                   });
-                } else if (!email) {
+                } else if (!username) {
                   // TODO
-                  console.error("INVALID EMAIL");
+                  console.error("INVALID username");
                 } else if (!pwd) {
                   // TODO
                   console.error("INVALID PWD");

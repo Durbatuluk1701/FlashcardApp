@@ -12,5 +12,12 @@
 		"username": "test@test",
 		"cards": [],
 		"name": "test@test"
+	},
+	"durbatuluk1701": {
+		"name": "Will",
+		"email": "30wthomas@gmail.com",
+		"password": "$2b$05$8tfFYRXjcqccRaV20fLlXefN0MHtCpp5tnXF3tThiBFxxEzes6I0a",
+		"username": "durbatuluk1701",
+		"cards": []
 	}
 }

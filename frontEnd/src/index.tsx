@@ -5,6 +5,8 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import "./components/index.css";
 import { AuthProvider } from "./contexts/AuthContext";
+import { CreateAccount } from "./components/CreateAccount/CreateAccount";
+import { Profile } from "./components/Profile/Profile";
 
 const Root = (): JSX.Element => {
   return (
@@ -29,6 +31,14 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <LoginPage />,
+      },
+      {
+        path: "/create-account",
+        element: <CreateAccount />,
+      },
+      {
+        path: "/profile/:username",
+        element: <Profile />,
       },
     ],
   },

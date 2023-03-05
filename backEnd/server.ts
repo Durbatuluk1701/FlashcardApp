@@ -23,9 +23,9 @@ app.post("/users", (req, res) => {
   const user: User = req.body;
   // TODO: Enhance construction
   user.password = hash_pwd(user.password);
-  user.username = user.email;
-  user.cards = [];
-  user.name = user.email;
+  // user.username = user.email;
+  // user.cards = [];
+  // user.name = user.email;
 
   local_db.add_user(user);
   res.json(local_db.get_user(user.username));
@@ -45,6 +45,7 @@ app.post("/login", (req, res) => {
   const local_user = local_db.get_user(username);
   if (local_user) {
     // Check password
+    console.log(local_user);
     if (compare_pwd(pwd, local_user)) {
       // Matched
       res.status(200).json(local_user);
@@ -54,7 +55,7 @@ app.post("/login", (req, res) => {
     }
   } else {
     // We do not have that user
-    res.status(404).json({ message: "User not found in database" });
+    res.status(401).json({ message: "User not found in database" });
   }
 });
 
