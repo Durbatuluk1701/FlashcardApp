@@ -1,21 +1,16 @@
 {
-  "test_username": {
-    "username": "string",
-    "name": "string",
-    "email": "string",
-    "password": "salted_string",
-    "cards": []
-  },
-  "new_user": {
-    "username": "new_user",
-    "cards": [
-      {
-        "definition": "World",
-        "word": "Hello"
-      }
-    ],
-    "name": "new userman",
-    "email": "test_email",
-    "password": "NEW PASSWORD"
-  }
+	"test_username": {
+		"username": "string",
+		"name": "string",
+		"email": "string",
+		"password": "salted_string",
+		"cards": []
+	},
+	"test@test": {
+		"email": "test@test",
+		"password": "$2b$05$zl.OavC5hFJNzOO3/lQ1J.6P5tQ5K7E.K2RCToretPaz35q2DFKOW",
+		"username": "test@test",
+		"cards": [],
+		"name": "test@test"
+	}
 }

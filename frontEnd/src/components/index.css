@@ -25,6 +25,12 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
+.login-bottom-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .login-input {
   display: block;
   margin: 10px auto;
@@ -32,7 +38,7 @@ body {
   padding: 10px;
   border: none;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: large;
   box-shadow: 0 0 2px black;
 }
 
@@ -42,6 +48,21 @@ body {
 }
 
 .login-button {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: var(--green);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  font-size: large;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #228b22;
+}
+
+#create-account {
   display: block;
   margin-top: 10px;
   padding: 10px;
@@ -49,12 +70,13 @@ body {
   color: var(--white);
   border: none;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: large;
   cursor: pointer;
-  float: right;
+  float: left;
+  text-decoration: none;
 }
 
-.login-button:hover {
+#create-account:hover {
   background-color: #228b22;
 }
 
@@ -69,7 +91,7 @@ body {
 }
 
 .header-logo a {
-  font-size: 24px;
+  font-size: x-large;
   color: var(--white);
   text-decoration: none;
 }
