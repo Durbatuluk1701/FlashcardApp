@@ -61,7 +61,7 @@ export const CreateAccount = (): JSX.Element => {
             <label htmlFor="username">Username</label>
             <input
               type="text"
-              id="name"
+              id="username"
               name="username"
               value={username}
               onChange={handleUsernameChange}
