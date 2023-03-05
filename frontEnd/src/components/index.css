@@ -1,0 +1,256 @@
+:root {
+  --blue: #3489bd;
+  --dark-blue: #0a65b5;
+  --white: #ffffff;
+  --green: #32cd32;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  background-color: var(--blue);
+}
+
+/* LOGIN */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-form {
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.login-bottom-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.login-input {
+  display: block;
+  margin: 10px auto;
+  /* margin-bottom: 10px; */
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: large;
+  box-shadow: 0 0 2px black;
+}
+
+.login-input:focus {
+  outline: none;
+  box-shadow: 0 0 5px var(--green);
+}
+
+.login-button {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: var(--green);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  font-size: large;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #228b22;
+}
+
+#create-account {
+  display: block;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: var(--green);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  font-size: large;
+  cursor: pointer;
+  float: left;
+  text-decoration: none;
+}
+
+#create-account:hover {
+  background-color: #228b22;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.header-logo a {
+  font-size: xx-large;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.header-logo a:hover {
+  color: var(--green);
+}
+
+.header-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.header-nav li {
+  margin-right: 20px;
+}
+
+.header-nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: x-large;
+}
+
+.header-nav a:hover {
+  color: var(--green);
+}
+
+/* Loading Modal */
+.loading-modal {
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-spinner {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/** Create Account */
+.create-account-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.create-account {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  margin-top: 50px;
+  width: 400px;
+}
+
+#create-account-title {
+  color: var(--dark-blue);
+}
+
+.create-account label {
+  font-size: large;
+  font-weight: bold;
+  color: var(--blue);
+  align-self: flex-start;
+}
+
+.create-account input {
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: large;
+  width: 95%;
+  box-shadow: 0 0 2px black;
+}
+
+.create-account button {
+  align-self: flex-end;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: var(--green);
+  color: var(--white);
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.create-account button:hover {
+  background-color: #3cb371;
+}
+
+/** Profile */
+.user-profile-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--white);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.15);
+}
+
+.user-profile-container h1 {
+  text-align: center;
+  font-size: xx-large;
+}
+
+.user-info-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  /* justify-content: space-between; */
+}
+
+.user-info-container img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.user-info p {
+  margin: 10px 0;
+}
+
+.user-bio h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.user-bio p {
+  margin-top: 0;
+}
