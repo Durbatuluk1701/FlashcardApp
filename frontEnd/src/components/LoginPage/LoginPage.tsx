@@ -15,6 +15,9 @@ export const LoginPage = (): JSX.Element => {
         <>Already Authenticated</>
       ) : (
         <form className="login-form">
+          {
+            //TODO: Make it so you can use username or email to login
+          }
           <label>
             Username:
             <input
