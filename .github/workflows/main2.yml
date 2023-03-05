@@ -1,0 +1,14 @@
+on:
+  issues:
+    types:
+    - opened
+    
+jobs:
+  add-to-project:
+    name: Add To GitHub projects
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@v0.4.1
+        with: 
+          project-url: https://github.com/users/Durbatuluk1701/projects/1
+          github-token: ${{ secrets.Project_Issue_PAT }}
