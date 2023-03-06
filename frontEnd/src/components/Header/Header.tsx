@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts";
 
 export const Header = (): JSX.Element => {
-  const { authenticated } = React.useContext(AuthContext);
+  const { logOut, authenticated } = React.useContext(AuthContext);
 
   return (
     <header className="header">
@@ -22,6 +22,15 @@ export const Header = (): JSX.Element => {
               <Link to={"/login"}>Login</Link>
             )}
           </li>
+          {authenticated ? (
+            <li>
+              <Link to="/" onClick={() => logOut()}>
+                Logout
+              </Link>
+            </li>
+          ) : (
+            <></>
+          )}
           {/* <li>
             <a href="#">Services</a>
           </li>

@@ -3,3 +3,7 @@ export * from "./Flashcard/Flashcard";
 export * from "./LoginPage/LoginPage";
 export * from "./Header/Header";
 export * from "./LoadingModal/LoadingModal";
+export * from "./ProfileRedirect/ProfileRedirect";
+export * from "./Profile/Profile";
+export * from "./NotFoundLanding/NotFoundLanding";
+export * from "./CreateAccount/CreateAccount";
