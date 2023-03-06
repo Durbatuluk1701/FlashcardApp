@@ -1,12 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { App, Header, LoginPage } from "./components";
+import {
+  App,
+  CreateAccount,
+  Header,
+  LoginPage,
+  NotFoundLanding,
+  Profile,
+  ProfileRedirect,
+} from "./components";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import "./components/index.css";
 import { AuthProvider } from "./contexts/AuthContext";
-import { CreateAccount } from "./components/CreateAccount/CreateAccount";
-import { Profile } from "./components/Profile/Profile";
 
 const Root = (): JSX.Element => {
   return (
@@ -39,6 +45,14 @@ const router = createBrowserRouter([
       {
         path: "/profile/:username",
         element: <Profile />,
+      },
+      {
+        path: "/profile",
+        element: <ProfileRedirect />,
+      },
+      {
+        path: "*",
+        element: <NotFoundLanding />,
       },
     ],
   },

@@ -20,9 +20,11 @@ type Auth = {
   authenticated: User | undefined;
   updateAuth: (email: string, password: string) => Promise<void>;
   setAuth: (u: User) => void;
+  logOut: () => void;
 };
 
 const defaultAuth: Auth = {
+  logOut: () => console.error("DEFAULT AUTH CONTEXT BEING USED"),
   authenticated: undefined,
   updateAuth: () => Promise.reject("DEFAULT AUTH CONTEXT BEING USED"),
   setAuth: () => console.error("DEFAULT AUTH CONTEXT BEING USED"),
@@ -63,6 +65,7 @@ export const AuthProvider = (props: React.PropsWithChildren) => {
   return (
     <AuthContext.Provider
       value={{
+        logOut: () => setIsAuthenticated(undefined),
         authenticated: isAuthenticated,
         updateAuth: (email, password) =>
           login_user_function(email, password, setIsAuthenticated),

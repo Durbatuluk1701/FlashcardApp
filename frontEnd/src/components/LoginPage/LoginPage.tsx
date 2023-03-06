@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../../contexts";
 import { LoadingModal } from "../LoadingModal/LoadingModal";
 
@@ -12,7 +12,7 @@ export const LoginPage = (): JSX.Element => {
       {loading ? (
         <LoadingModal />
       ) : authenticated ? (
-        <>Already Authenticated</>
+        <Navigate to={"/profile"} />
       ) : (
         <form className="login-form">
           {
