@@ -8,6 +8,7 @@ import {
   NotFoundLanding,
   Profile,
   ProfileRedirect,
+  Sets,
 } from "./components";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <LoginPage />,
+      },
+      {
+        path: "/sets",
+        element: <Sets />,
       },
       {
         path: "/create-account",

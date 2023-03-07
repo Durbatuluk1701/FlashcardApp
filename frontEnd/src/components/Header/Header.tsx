@@ -15,21 +15,25 @@ export const Header = (): JSX.Element => {
           <li>
             <Link to={"/"}>Home</Link>
           </li>
-          <li>
-            {authenticated ? (
-              <Link to={"/profile"}>Profile</Link>
-            ) : (
-              <Link to={"/login"}>Login</Link>
-            )}
-          </li>
+
           {authenticated ? (
-            <li>
-              <Link to="/" onClick={() => logOut()}>
-                Logout
-              </Link>
-            </li>
+            <>
+              <li>
+                <Link to={"/sets"}>Sets</Link>
+              </li>
+              <li>
+                <Link to={"/profile"}>Profile</Link>
+              </li>
+              <li>
+                <Link to="/" onClick={() => logOut()}>
+                  Logout
+                </Link>
+              </li>
+            </>
           ) : (
-            <></>
+            <li>
+              <Link to={"/login"}>Login</Link>
+            </li>
           )}
           {/* <li>
             <a href="#">Services</a>
