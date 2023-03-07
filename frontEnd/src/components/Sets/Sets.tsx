@@ -12,8 +12,9 @@ export const Sets = () => {
       back: "back1",
       flipped: false,
       setFlipped: (b: boolean) => {
-        const microView = cards.filter((_, ind) => ind !== 0);
-        setCards([{ ...cards[0], flipped: b }, ...microView]);
+        const cardsCopy = [...cards];
+        cardsCopy[0].flipped = b;
+        setCards(cardsCopy);
       },
     },
     {
@@ -21,8 +22,9 @@ export const Sets = () => {
       back: "back2",
       flipped: false,
       setFlipped: (b: boolean) => {
-        const microView = cards.filter((_, ind) => ind !== 1);
-        setCards([{ ...cards[1], flipped: b }, ...microView]);
+        const cardsCopy = [...cards];
+        cardsCopy[1].flipped = b;
+        setCards(cardsCopy);
       },
     },
     {
@@ -30,8 +32,9 @@ export const Sets = () => {
       back: "back3",
       flipped: false,
       setFlipped: (b: boolean) => {
-        const microView = cards.filter((_, ind) => ind !== 2);
-        setCards([{ ...cards[2], flipped: b }, ...microView]);
+        const cardsCopy = [...cards];
+        cardsCopy[2].flipped = b;
+        setCards(cardsCopy);
       },
     },
     {
@@ -39,8 +42,9 @@ export const Sets = () => {
       back: "back4",
       flipped: false,
       setFlipped: (b: boolean) => {
-        const microView = cards.filter((_, ind) => ind !== 3);
-        setCards([{ ...cards[3], flipped: b }, ...microView]);
+        const cardsCopy = [...cards];
+        cardsCopy[3].flipped = b;
+        setCards(cardsCopy);
       },
     },
   ]);
