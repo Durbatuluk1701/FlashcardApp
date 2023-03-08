@@ -1,4 +1,6 @@
 import React from "react";
+import { Navigate } from "react-router";
+import { AuthContext } from "../../contexts";
 import { CardData, Flashcard } from "../Flashcard/Flashcard";
 import { Slideshow } from "../Slideshow/Slideshow";
 import "./Sets.css";
@@ -6,6 +8,8 @@ import "./Sets.css";
 // const SETS: CardData[] = ;
 
 export const Sets = () => {
+  const { authenticated } = React.useContext(AuthContext);
+
   const [cards, setCards] = React.useState<CardData[]>([
     {
       front: "front1",
@@ -49,11 +53,13 @@ export const Sets = () => {
     },
   ]);
 
-  return (
+  return authenticated ? (
     <div className="sets-container">
       <div className="sets-slideshow">
         <Slideshow Component={Flashcard} data={cards} />
       </div>
     </div>
+  ) : (
+    <Navigate to={"/login?redirect=" + encodeURIComponent("/sets")} />
   );
 };

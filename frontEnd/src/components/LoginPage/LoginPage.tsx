@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useSearchParams } from "react-router-dom";
 import { AuthContext } from "../../contexts";
 import { LoadingModal } from "../LoadingModal/LoadingModal";
 
@@ -7,12 +7,22 @@ export const LoginPage = (): JSX.Element => {
   const { authenticated, updateAuth } = React.useContext(AuthContext);
   const [loading, setLoading] = React.useState<boolean>(false);
 
+  const searchParams = useSearchParams()[0];
+
+  const redirect = searchParams.get("redirect");
+
+  console.log(redirect);
+
   return (
     <div className="login-container">
       {loading ? (
         <LoadingModal />
       ) : authenticated ? (
-        <Navigate to={"/profile"} />
+        redirect ? (
+          <Navigate to={redirect} />
+        ) : (
+          <Navigate to={"/profile"} />
+        )
       ) : (
         <form className="login-form">
           {

@@ -16,11 +16,12 @@ export const Header = (): JSX.Element => {
             <Link to={"/"}>Home</Link>
           </li>
 
+          <li>
+            <Link to={"/sets"}>Sets</Link>
+          </li>
+
           {authenticated ? (
             <>
-              <li>
-                <Link to={"/sets"}>Sets</Link>
-              </li>
               <li>
                 <Link to={"/profile"}>Profile</Link>
               </li>
