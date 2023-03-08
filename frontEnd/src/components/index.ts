@@ -7,4 +7,4 @@ export * from "./ProfileRedirect/ProfileRedirect";
 export * from "./Profile/Profile";
 export * from "./NotFoundLanding/NotFoundLanding";
 export * from "./CreateAccount/CreateAccount";
-export * from "./Sets/Sets";
+export * from "./SpecificSet/SpecificSet";

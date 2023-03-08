@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { AuthContext } from "../../contexts";
 import { create_user_function } from "../../utils";
 import { LoadingModal } from "../LoadingModal/LoadingModal";
+import "./CreateAccount.css";
 
 export const CreateAccount = (): JSX.Element => {
   const { setAuth } = React.useContext(AuthContext);

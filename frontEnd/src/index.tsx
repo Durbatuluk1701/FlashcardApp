@@ -8,12 +8,15 @@ import {
   NotFoundLanding,
   Profile,
   ProfileRedirect,
-  Sets,
+  // SpecificSet,
 } from "./components";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import "./components/index.css";
 import { AuthProvider } from "./contexts/AuthContext";
+import { Sets } from "./components/Sets/Sets";
+import { SetsRedirect } from "./components/Sets/SetsRedirect";
+import { NewSet } from "./components/NewSet/NewSet";
 
 const Root = (): JSX.Element => {
   return (
@@ -41,6 +44,14 @@ const router = createBrowserRouter([
       },
       {
         path: "/sets",
+        element: <SetsRedirect />,
+      },
+      {
+        path: "/new-set",
+        element: <NewSet />,
+      },
+      {
+        path: "/sets/:username",
         element: <Sets />,
       },
       {

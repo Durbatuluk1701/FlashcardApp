@@ -1,65 +1,42 @@
 import React from "react";
-import { Navigate } from "react-router";
-import { AuthContext } from "../../contexts";
-import { CardData, Flashcard } from "../Flashcard/Flashcard";
-import { Slideshow } from "../Slideshow/Slideshow";
-import "./Sets.css";
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
+// import { AuthContext } from "../../contexts";
+import { get_user_set_names } from "../../utils";
 
-// const SETS: CardData[] = ;
+const SetPreview = ({ name }: { name: string }) => {
+  return <>{name}</>;
+};
 
 export const Sets = () => {
-  const { authenticated } = React.useContext(AuthContext);
+  // const { authenticated } = React.useContext(AuthContext);
+  const [sets, setSets] = React.useState<string[]>([]);
+  const { username } = useParams();
 
-  const [cards, setCards] = React.useState<CardData[]>([
-    {
-      front: "front1",
-      back: "back1",
-      flipped: false,
-      setFlipped: (b: boolean) => {
-        const cardsCopy = [...cards];
-        cardsCopy[0].flipped = b;
-        setCards(cardsCopy);
-      },
-    },
-    {
-      front: "front2",
-      back: "back2",
-      flipped: false,
-      setFlipped: (b: boolean) => {
-        const cardsCopy = [...cards];
-        cardsCopy[1].flipped = b;
-        setCards(cardsCopy);
-      },
-    },
-    {
-      front: "front3",
-      back: "back3",
-      flipped: false,
-      setFlipped: (b: boolean) => {
-        const cardsCopy = [...cards];
-        cardsCopy[2].flipped = b;
-        setCards(cardsCopy);
-      },
-    },
-    {
-      front: "front4",
-      back: "back4",
-      flipped: false,
-      setFlipped: (b: boolean) => {
-        const cardsCopy = [...cards];
-        cardsCopy[3].flipped = b;
-        setCards(cardsCopy);
-      },
-    },
-  ]);
+  // React.useEffect(() => {
+  //   if (authenticated) {
+  //     get_user_set_names(authenticated.username).then((val) => {
+  //       setSets(val);
+  //     });
+  //   }
+  // }, [authenticated]);
 
-  return authenticated ? (
-    <div className="sets-container">
-      <div className="sets-slideshow">
-        <Slideshow Component={Flashcard} data={cards} />
+  React.useEffect(() => {
+    if (username) {
+      get_user_set_names(username).then((val) => {
+        setSets(val);
+      });
+    }
+  }, [username]);
+
+  return (
+    <div>
+      <Link to={"/new-set"}>Create New Set</Link>
+      <div className="sets-container">
+        {sets.map((val) => (
+          <SetPreview name={val} />
+        ))}
       </div>
     </div>
-  ) : (
-    <Navigate to={"/login?redirect=" + encodeURIComponent("/sets")} />
   );
 };

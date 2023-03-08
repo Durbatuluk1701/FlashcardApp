@@ -67,3 +67,21 @@ export const login_user_function = (
     })
     .finally(() => Promise.resolve);
 };
+
+export const get_user_set_names = (username: string): Promise<string[]> => {
+  return fetch(API_LANDING + `/user_sets/${username}`).then((res) => {
+    if (res.status === 200) {
+      // Valid response
+      res.json().then((val) => {
+        console.log("Get User Set response", val);
+        const sets = val as string[];
+        return Promise.resolve(sets);
+      });
+    } else if (res.status === 401) {
+      console.error("Invalid Auth and/or User not found");
+    } else {
+      console.error("Unknown error when trying to login");
+    }
+    return Promise.resolve([]);
+  });
+};
