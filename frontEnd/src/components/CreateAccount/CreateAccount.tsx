@@ -38,7 +38,7 @@ export const CreateAccount = (): JSX.Element => {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    const newUser = { name, email, password, username, cards: [] };
+    const newUser = { name, email, password, username, sets: [] };
     setLoading(true);
     create_user_function(newUser, setAuth);
     setLoading(false);

@@ -23,8 +23,10 @@ export function Slideshow<T>({
   };
 
   return (
-    <div className="slideshow-container">
-      {/* {viewingSlice.map((val, ind) => {
+    <>
+      {data.length > 1 ? (
+        <div className="slideshow-container">
+          {/* {viewingSlice.map((val, ind) => {
         const conf = retrieve_config(ind);
         return (
           <div
@@ -38,21 +40,25 @@ export function Slideshow<T>({
         );
       })} */}
 
-      <div className="slideshow-item-left" onClick={prevItem}>
-        <Component
-          data={data[(currentIndex - 1 + data.length) % data.length]}
-          position={"left"}
-        />
-      </div>
-      <div className="slideshow-item-active">
-        <Component data={data[currentIndex]} position={"focused"} />
-      </div>
-      <div className="slideshow-item-right" onClick={nextItem}>
-        <Component
-          data={data[(currentIndex + 1) % data.length]}
-          position={"right"}
-        />
-      </div>
-    </div>
+          <div className="slideshow-item-left" onClick={prevItem}>
+            <Component
+              data={data[(currentIndex - 1 + data.length) % data.length]}
+              position={"left"}
+            />
+          </div>
+          <div className="slideshow-item-active">
+            <Component data={data[currentIndex]} position={"focused"} />
+          </div>
+          <div className="slideshow-item-right" onClick={nextItem}>
+            <Component
+              data={data[(currentIndex + 1) % data.length]}
+              position={"right"}
+            />
+          </div>
+        </div>
+      ) : (
+        <>EMPTY SLIDESHOW</>
+      )}
+    </>
   );
 }

@@ -19,8 +19,31 @@
 			"email": "30wthomas@gmail.com",
 			"password": "$2b$05$8tfFYRXjcqccRaV20fLlXefN0MHtCpp5tnXF3tThiBFxxEzes6I0a",
 			"username": "durbatuluk1701",
-			"sets": []
+			"sets": [
+				"b614d3a4-cdf7-49ed-9ad6-5199e5277317"
+			]
 		}
 	},
-	"sets": {}
+	"sets": {
+		"b614d3a4-cdf7-49ed-9ad6-5199e5277317": {
+			"name": "Test Set",
+			"cards": [
+				{
+					"word": "Hello",
+					"definition": "World",
+					"tags": []
+				},
+				{
+					"word": "Testing",
+					"definition": "Phrase",
+					"tags": []
+				},
+				{
+					"word": "Word",
+					"definition": "Definition",
+					"tags": []
+				}
+			]
+		}
+	}
 }

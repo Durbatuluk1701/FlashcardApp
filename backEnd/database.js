@@ -60,6 +60,7 @@ const read_database = () => {
         add_set: (s) => {
             const uuid = UUID.v4();
             db.sets[uuid] = s;
+            return uuid;
         },
         add_to_set: (s, c) => {
             db.sets[s].cards.push(c);

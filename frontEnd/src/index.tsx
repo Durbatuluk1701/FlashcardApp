@@ -8,7 +8,7 @@ import {
   NotFoundLanding,
   Profile,
   ProfileRedirect,
-  // SpecificSet,
+  SpecificSet,
 } from "./components";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
@@ -49,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/new-set",
         element: <NewSet />,
+      },
+      {
+        path: "/sets/:username/:setid",
+        element: <SpecificSet />,
       },
       {
         path: "/sets/:username",

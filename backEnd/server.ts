@@ -77,7 +77,23 @@ app.get("/sets/:setid", (req, res) => {
     console.log("Looked up as: ", currentSet);
     res.json(currentSet);
   } else {
-    res.status(404).json({ message: "Set not found in the database" });
+    res.status(400).json({ message: "Set not found in the database" });
+  }
+});
+
+app.post("/sets", (req, res) => {
+  // TODO: Add authentication for adding sets
+  console.log("Received POST request for new-set");
+  const set = req.body["set"];
+  const username = req.body["username"];
+  const local_user = local_db.get_user(username);
+  if (local_user) {
+    const uuid = local_db.add_set(set);
+    local_user.sets.push(uuid);
+    res.status(200).json(uuid);
+  } else {
+    // We do not have that user
+    res.status(400).json({ message: "User not found in database" });
   }
 });
 

@@ -49,7 +49,7 @@ type Database = {
   get_set_names: (sl: SetID[]) => string[];
 
   get_set: (s: SetID) => Set;
-  add_set: (s: Set) => void;
+  add_set: (s: Set) => string;
   add_to_set: (s: SetID, c: Flashcard) => void;
 
   users: Users;
@@ -117,6 +117,7 @@ export const read_database = (): Database => {
     add_set: (s: Set) => {
       const uuid = UUID.v4();
       db.sets[uuid] = s;
+      return uuid;
     },
     add_to_set: (s: SetID, c: Flashcard) => {
       db.sets[s].cards.push(c);

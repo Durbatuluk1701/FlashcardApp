@@ -6,3 +6,10 @@
   height: 400px;
   margin-bottom: 50px;
 }
+
+#specific-set-set-name {
+  background-color: var(--white);
+  color: var(--dark-blue);
+  border-radius: 10px;
+  text-align: center;
+}
