@@ -56,7 +56,7 @@ export const login_user_function = (
   email: string,
   password: string,
   callback: any
-): Promise<void> => {
+): Promise<Res<bool>> => {
   console.log("LOGGING IN USER");
   return fetch(API_LANDING + "/login", {
     method: "POST",
@@ -67,22 +67,36 @@ export const login_user_function = (
     body: JSON.stringify({ username: email, password: password }),
   })
     .then((res) => {
-      if (res.status === 200) {
-        // Valid response
-        res.json().then((val) => {
+      return res.json().then((val) => {
+        console.log(val);
+        if (res.status === 200) {
+          // Valid response
           const newUser = val as User;
           callback(newUser);
-        });
-      } else if (res.status === 401) {
-        console.error("Invalid Auth and/or User not found");
-      } else {
-        console.error("Unknown error when trying to login");
-      }
+          return Promise.resolve<Res<bool>>({
+            res: "Ok",
+            val: true,
+          });
+        } else {
+          return Promise.resolve<Res<bool>>({
+            res: "Err",
+            val: `Login could not be completed: ${val.message}`,
+          });
+        }
+        // if (res.status === 401) {
+        //   return Promise.resolve<Res<bool>>({
+        //     res: "Err",
+        //     val: "Invalid Auth and/or User not found" + val,
+        //   });
+        // }
+      });
     })
-    .catch((err) => {
-      console.error("COULD NOT CONNECT TO API", err);
-    })
-    .finally(() => Promise.resolve);
+    .catch(() => {
+      return Promise.resolve<Res<bool>>({
+        res: "Err",
+        val: "COULD NOT CONNECT TO API",
+      });
+    });
 };
 
 export const get_user_set_names = (username: string): Promise<string[]> => {

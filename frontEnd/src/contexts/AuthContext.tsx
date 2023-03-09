@@ -11,7 +11,7 @@ export type User = {
 
 type Auth = {
   authenticated: User | undefined;
-  updateAuth: (email: string, password: string) => Promise<void>;
+  updateAuth: (email: string, password: string) => Promise<Res<bool>>;
   setAuth: (u: User) => void;
   logOut: () => void;
 };
