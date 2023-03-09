@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { AuthContext } from "../../contexts";
 import { create_user_function } from "../../utils";
 import { LoadingModal } from "../LoadingModal/LoadingModal";
+import "./CreateAccount.css";
 
 export const CreateAccount = (): JSX.Element => {
   const { setAuth } = React.useContext(AuthContext);
@@ -37,7 +38,7 @@ export const CreateAccount = (): JSX.Element => {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    const newUser = { name, email, password, username, cards: [] };
+    const newUser = { name, email, password, username, sets: [] };
     setLoading(true);
     create_user_function(newUser, setAuth);
     setLoading(false);

@@ -1,19 +1,12 @@
 import React from "react";
-import { login_user_function } from "../utils";
-
-type Username = string;
-
-type Flashcards = {
-  word: string;
-  definition: string;
-};
+import { login_user_function, SetID, Username } from "../utils";
 
 export type User = {
   username: Username;
   name: string;
   email: string;
   password: string;
-  cards: Flashcards[];
+  sets: SetID[];
 };
 
 type Auth = {

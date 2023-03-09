@@ -1,5 +1,22 @@
 import { User } from "../contexts";
 
+export type Username = string;
+
+export type Tag = string;
+
+export type Flashcard = {
+  word: string;
+  definition: string;
+  tags: Tag[];
+};
+
+export type SetID = string;
+
+export type Set = {
+  name: string;
+  cards: Flashcard[];
+};
+
 const API_LANDING = "http://localhost:3456";
 
 export const retrieve_user = async (
@@ -66,4 +83,69 @@ export const login_user_function = (
       console.error("COULD NOT CONNECT TO API", err);
     })
     .finally(() => Promise.resolve);
+};
+
+export const get_user_set_names = (username: string): Promise<string[]> => {
+  return fetch(API_LANDING + `/user_sets/${username}`).then((res) => {
+    if (res.status === 200) {
+      // Valid response
+      res.json().then((val) => {
+        console.log("Get User Set response", val);
+        const sets = val as string[];
+        return Promise.resolve(sets);
+      });
+    } else if (res.status === 401) {
+      console.error("Invalid Auth and/or User not found");
+    } else {
+      console.error("Unknown error when trying to login");
+    }
+    return Promise.resolve([]);
+  });
+};
+
+export const API_get_set = (id: SetID): Promise<Set | undefined> => {
+  return fetch(API_LANDING + `/sets/${id}`).then((res) => {
+    if (res.status === 200) {
+      // Valid response
+      return res.json().then((val) => {
+        console.log(`Retrieve Set with id: ${id}; as ${val}`);
+        const set = val as Set;
+        return Promise.resolve(set);
+      });
+    } else if (res.status === 401) {
+      console.error("Invalid Auth and/or User not found");
+    } else {
+      console.error("Unknown error when trying to login");
+    }
+    return Promise.resolve(undefined);
+  });
+};
+
+export const API_add_set = (
+  username: Username,
+  // token: We need to add the auth token here at some point
+  s: Set
+): Promise<string | undefined> => {
+  return fetch(API_LANDING + `/sets`, {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ username: username, set: s }),
+  }).then((res) => {
+    if (res.status === 200) {
+      // Valid response
+      return res.json().then((val) => {
+        console.log("Added Set", val);
+        const set_uuid = val as string;
+        return Promise.resolve(set_uuid);
+      });
+    } else if (res.status === 401) {
+      console.error("Invalid Auth and/or User not found");
+    } else {
+      console.error("Unknown error when trying to login");
+    }
+    return Promise.resolve(undefined);
+  });
 };
