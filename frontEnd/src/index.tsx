@@ -13,18 +13,22 @@ import {
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import "./components/index.css";
-import { AuthProvider } from "./contexts/AuthContext";
 import { Sets } from "./components/Sets/Sets";
 import { SetsRedirect } from "./components/Sets/SetsRedirect";
 import { NewSet } from "./components/NewSet/NewSet";
+import { AuthProvider, ModalProvider } from "./contexts";
+import { Modal } from "./components/Modal/Modal";
 
 const Root = (): JSX.Element => {
   return (
     <>
-      <AuthProvider>
-        <Header />
-        <Outlet />
-      </AuthProvider>
+      <ModalProvider>
+        <AuthProvider>
+          <Header />
+          <Modal />
+          <Outlet />
+        </AuthProvider>
+      </ModalProvider>
     </>
   );
 };
