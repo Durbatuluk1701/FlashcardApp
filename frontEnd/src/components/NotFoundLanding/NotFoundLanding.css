@@ -1,0 +1,49 @@
+/** Not Found Landing */
+.not-found-page-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--blue);
+}
+
+.not-found-mini-wrapper {
+  background: var(--dark-blue);
+  margin: auto;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.75), -1px -1px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5%;
+  max-width: 95vh;
+  align-items: center;
+}
+
+.not-found-error-title {
+  color: var(--white);
+  font-size: xx-large;
+  margin-bottom: 20px;
+}
+
+.not-found-error-message {
+  color: var(--white);
+  font-size: large;
+  margin-bottom: 20px;
+}
+
+.not-found-home-link {
+  background-color: var(--white);
+  color: var(--blue);
+  border: 1px solid var(--dark-blue);
+  border-radius: 5px;
+  padding: 15px 30px;
+  /* font-size: x-large; */
+  transition: all 0.3s ease;
+  box-shadow: 1px 1px 5px var(--dark-blue);
+}
+
+.not-found-home-link:hover {
+  background-color: var(--green);
+  color: var(--white);
+}

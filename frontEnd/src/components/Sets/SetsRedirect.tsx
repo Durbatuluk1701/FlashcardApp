@@ -11,7 +11,7 @@ export const SetsRedirect = (): JSX.Element => {
       {authenticated ? (
         <Navigate to={`/sets/${authenticated.username}`} />
       ) : (
-        <>TODO: IMPLEMENT THIS</>
+        <>TODO: Add a search box for searching public sets here</>
       )}
     </>
   );

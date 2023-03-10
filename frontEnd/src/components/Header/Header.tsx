@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../contexts";
+import "./Header.css";
 
 export const Header = (): JSX.Element => {
   const { logOut, authenticated } = React.useContext(AuthContext);

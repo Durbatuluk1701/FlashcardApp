@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { User } from "../../contexts";
 import { retrieve_user } from "../../utils";
+import "./Profile.css";
 
 export const Profile = (): JSX.Element => {
   const params = useParams();

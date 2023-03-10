@@ -1,4 +1,5 @@
 import React from "react";
+import "./LoadingModal.css";
 
 export const LoadingModal = (): JSX.Element => {
   return (

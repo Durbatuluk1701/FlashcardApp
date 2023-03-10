@@ -2,6 +2,7 @@ import React from "react";
 import { Link, Navigate, useSearchParams } from "react-router-dom";
 import { AuthContext, ModalContext } from "../../contexts";
 import { LoadingModal } from "../LoadingModal/LoadingModal";
+import "./LoginPage.css";
 
 export const LoginPage = (): JSX.Element => {
   const { authenticated, updateAuth } = React.useContext(AuthContext);

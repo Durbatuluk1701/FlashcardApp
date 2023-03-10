@@ -1,0 +1,40 @@
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.header-logo a {
+  font-size: xx-large;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.header-logo a:hover {
+  color: var(--green);
+}
+
+.header-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.header-nav li {
+  margin-right: 20px;
+}
+
+.header-nav a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: x-large;
+}
+
+.header-nav a:hover {
+  color: var(--green);
+}
