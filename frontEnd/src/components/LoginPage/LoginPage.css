@@ -48,7 +48,7 @@
 }
 
 .login-button:hover {
-  background-color: #228b22;
+  background-color: var(--hover-green);
 }
 
 #create-account {
@@ -66,5 +66,5 @@
 }
 
 #create-account:hover {
-  background-color: #228b22;
+  background-color: var(--hover-green);
 }

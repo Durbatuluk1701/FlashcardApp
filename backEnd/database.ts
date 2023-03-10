@@ -34,6 +34,11 @@ type Sets = {
   [setid: SetID]: Set;
 };
 
+type SetNameMap = {
+  setid: SetID;
+  name: string;
+};
+
 type StoredDb = {
   users: Users;
   sets: Sets;
@@ -46,7 +51,7 @@ type Database = {
   get_user_sets: (u: Username) => SetID[];
   // get_tagged_cards: (u: Username, t: Tag) => Flashcard[];
 
-  get_set_names: (sl: SetID[]) => string[];
+  get_set_names: (sl: SetID[]) => SetNameMap[];
 
   get_set: (s: SetID) => Set;
   add_set: (s: Set) => string;
@@ -106,7 +111,12 @@ export const read_database = (): Database => {
     },
 
     get_set_names: (sl: SetID[]) => {
-      return sl.map((id) => db.sets[id].name);
+      return sl.map((id) => {
+        return {
+          setid: id,
+          name: db.sets[id].name,
+        };
+      });
     },
     // add_card: (u: User, c: Flashcard) => {
     //   patch_array(db.users[u.username].cards, c, "word");

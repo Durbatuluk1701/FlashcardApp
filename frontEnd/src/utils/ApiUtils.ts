@@ -17,6 +17,11 @@ export type Set = {
   cards: Flashcard[];
 };
 
+export type SetNameMap = {
+  setid: SetID;
+  name: string;
+};
+
 const API_LANDING = "http://localhost:3456";
 
 export const retrieve_user = async (
@@ -101,14 +106,14 @@ export const login_user_function = (
 
 export const get_user_set_names = (
   username: string
-): Promise<Res<string[]>> => {
+): Promise<Res<SetNameMap[]>> => {
   return fetch(API_LANDING + `/user_sets/${username}`).then((res) => {
     return res.json().then((val) => {
       if (res.status === 200) {
         // Valid response
         console.log("Get User Set response", val);
-        const sets = val as string[];
-        return Promise.resolve<Res<string[]>>({
+        const sets = val as SetNameMap[];
+        return Promise.resolve<Res<SetNameMap[]>>({
           res: "Ok",
           val: sets,
         });

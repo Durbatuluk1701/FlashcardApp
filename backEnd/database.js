@@ -49,7 +49,12 @@ const read_database = () => {
             return db.users[name].sets;
         },
         get_set_names: (sl) => {
-            return sl.map((id) => db.sets[id].name);
+            return sl.map((id) => {
+                return {
+                    setid: id,
+                    name: db.sets[id].name,
+                };
+            });
         },
         // add_card: (u: User, c: Flashcard) => {
         //   patch_array(db.users[u.username].cards, c, "word");
