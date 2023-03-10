@@ -24,7 +24,7 @@ export function Slideshow<T>({
 
   return (
     <>
-      {data.length > 1 ? (
+      {data.length > 0 ? (
         <div className="slideshow-container">
           {/* {viewingSlice.map((val, ind) => {
         const conf = retrieve_config(ind);
